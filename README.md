@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Hay I am Building a Linked Clone from Scratch
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -19,52 +19,49 @@ You may also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Links
+So I followed a Video Tutorial (https://www.youtube.com/watch?v=xP3cxbDUtrc&list=PL-J2q3Ga50oMQa1JdSJxYoZELwOJAXExP&index=2)
+and found out alot of improvement is happened in the tech space;
+A good example is importation of Components from React dependences and implimentaton method.
+Thanks to Documntation from (https://bobbyhadz.com/blog/component-is-not-a-route-component-react-router)
+This help me resolve the challenge
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Code, Challenge Solved so Far
+(from Video)
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+function App() {
+  return (
+    <div className="App">
+      <Router>
+        <Routes>
+          <Route exact path="/"> 
+             <Login />
+          <Route>
+        </Routes>
+      </Router>
+    </div>
+  );
+}
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+export default App;
 
-### `npm run eject`
+The above returned error [Login] not a component of Route due to upgraged version of react-route-dom dependencies
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+(My Solution)
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+function App() {
+  return (
+    <div className="App">
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<Login />} />
+        </Routes>
+      </Router>
+    </div>
+  );
+}
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+export default App;
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+I decleared the Login Component using "element."
